@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/desktop.css" media="screen and (min-width: 768px)"> 
+    <link rel="stylesheet" href="styles/mobile.css" media="screen and (max-width: 767px)"> 
+    <link rel="stylesheet" href="styles/auth.css">
+    <title>Authentification</title>
+</head>
+<body>
+
+        <header>
+            <div id = "left">
+                <img src="./pictures/bird.png" alt="logo with a cute bird" height="100" title="Cute birdy logo">
+                <h1 title="Info mostly from Wikipedia">Birds</h1>
+            </div>
+           <div id = "right">
+                <a href=""><img src="./pictures/france.png" alt="French flag" height="100" title="Set to French"></a>
+                <a href=""><img src="./pictures/japan.png" alt="Japanese flag" height="100" title="Set to Japanese"></a>
+                <a href=""><img src="./pictures/united-kingdom.png" alt="UK flag" height="100" title="Set to English"></a>
+            </div>
+        </header>
+
+        <main class="auth-main">
+            <section class="auth-card" aria-labelledby="auth-heading">
+                <h2 id="auth-heading">Connexion</h2>
+                <form id="loginForm" action="#" method="post" novalidate>
+                    <div class="form-group">
+                        <label for="identifier">Adresse courriel ou pseudonyme</label>
+                        <input type="text" id="identifier" name="identifier" placeholder="ex: utilisateur@example.com" required>
+                        <div class="error" id="identifierError" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <div class="password-row">
+                            <input type="password" id="password" name="password" placeholder="Votre mot de passe" required minlength="6">
+                            <button type="button" id="togglePassword" aria-label="Afficher le mot de passe">Afficher</button>
+                        </div>
+                        <div class="error" id="passwordError" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <label class="checkbox-inline"><input type="checkbox" id="remember" name="remember"> Se souvenir de moi</label>
+                        <button type="submit" class="btn-primary">Se connecter</button>
+                    </div>
+
+                    <div class="auth-links">
+                        <a href="#" id="forgotLink">Mot de passe oublié ?</a>
+                        <a href="index.html">Retour au site</a>
+                    </div>
+                </form>
+                <p class="note">Remarque : cette page effectue une validation côté client. Pour une authentification réelle, implémentez la vérification côté serveur.</p>
+            </section>
+        </main>
+
+        <script src="scripts/auth.js" defer></script>
+
+    </body>
+
+</html>
