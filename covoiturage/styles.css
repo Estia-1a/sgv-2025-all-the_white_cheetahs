@@ -1,0 +1,288 @@
+/* Reset simple */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f5f7fb;
+  color: #102a43;
+}
+
+/* Liens */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* HEADER */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo type "Blablacar" simplifié */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.logo-icon span {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #00b4d8;
+}
+
+.logo-icon span:last-child {
+  background: #0077b6;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #024b59;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-link {
+  font-size: 0.95rem;
+  color: #0077b6;
+}
+
+.header-link:hover {
+  text-decoration: underline;
+}
+
+.icon-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 2px solid #00b4d8;
+  background: #e0f7ff;
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.hero-banner {
+  height: 260px;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 119, 182, 0.4),
+      rgba(0, 180, 216, 0.2)
+    ),
+    linear-gradient(to right, #0b1320, #283b4e);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Barre de recherche */
+
+.search-wrapper {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.search-bar {
+  position: relative;
+  margin-top: -40px; /* pour chevaucher l'image */
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+  padding: 0.4rem;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* Champs */
+
+.search-field {
+  flex: 1 1 0;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-field-small {
+  flex: 0 0 170px;
+}
+
+.field-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.15rem;
+}
+
+.search-field input,
+.search-field select {
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  color: #111827;
+  padding: 0;
+  height: 1.6rem;
+}
+
+.search-field input:focus,
+.search-field select:focus {
+  outline: none;
+}
+
+/* Séparateurs verticaux */
+
+.search-divider {
+  width: 1px;
+  background: #e5e7eb;
+  align-self: stretch;
+}
+
+/* Bouton Rechercher */
+
+.search-button {
+  flex: 0 0 auto;
+  margin-left: 0.5rem;
+  padding: 0 1.8rem;
+  border-radius: 999px;
+  border: none;
+  background: #00b4d8;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover {
+  background: #0093b3;
+}
+
+/* CONTENU PRINCIPAL */
+
+.content {
+  max-width: 1120px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.content h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.content p {
+  max-width: 640px;
+  color: #4b5563;
+  font-size: 0.98rem;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 1.5rem 1.5rem 2rem;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 960px) {
+  .search-bar {
+    flex-wrap: wrap;
+    border-radius: 1.4rem;
+    row-gap: 0.3rem;
+  }
+
+  .search-field,
+  .search-field-small {
+    flex: 1 1 50%;
+  }
+
+  .search-divider {
+    display: none;
+  }
+
+  .search-button {
+    width: 100%;
+    margin: 0.2rem 0.4rem 0.1rem;
+    padding-block: 0.7rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    padding-inline: 1rem;
+  }
+
+  .header-actions {
+    gap: 0.6rem;
+  }
+
+  .header-link {
+    display: none; /* tu peux les garder si tu veux, mais ça simplifie sur mobile */
+  }
+
+  .search-bar {
+    padding: 0.6rem 0.6rem 0.8rem;
+  }
+
+  .search-field,
+  .search-field-small {
+    flex: 1 1 100%;
+    padding-inline: 0.8rem;
+  }
+}
