@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+}
+
+/* Bandeau d'en-tête */
+.header {
+  background: #ffffff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style du titre */
+.site-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0077b6; /* bleu type covoiturage */
+}
