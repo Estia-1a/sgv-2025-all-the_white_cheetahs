@@ -1,105 +1,176 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Covoiturage - Recherche de trajets</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CovoiturageEstia – Interface complète</title>
+ 
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+ 
+        /* barre de */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+            background: #000;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+ 
+        .main-tabs {
+            display: flex;
+            gap: 25px;
+        }
+ 
+        .main-tabs a {
+            text-decoration: none;
+            color: white;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+ 
+        .main-tabs a:hover,
+        .main-tabs a.active {
+            opacity: 1;
+            border-bottom: 2px solid white;
+            padding-bottom: 5px;
+        }
+ 
+        .right a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            opacity: 0.9;
+        }
+ 
+        .btn-small {
+            padding: 7px 15px;
+            background: white;
+            color: black !important;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+ 
+        /* les sections */
+        .section {
+            display: none;
+            padding: 60px 50px;
+        }
+        .active-section {
+            display: block;
+        }
+ 
+        /* forme */
+        h1 {
+            font-size: 52px;
+        }
+ 
+        p {
+            opacity: 0.85;
+        }
+ 
+        .form-box {
+            margin-top: 35px;
+            background: #111;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 500px;
+        }
+        
+        /* physic */
+        .footer {
+            text-align: center;
+            opacity: 0.6;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
+ 
 <body>
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="logo">
-        <div class="logo-icon">
-          <span></span>
-          <span></span>
+ 
+    <!-- onglet pour trajet -->
+    <header class="topbar">
+        <div class="logo">CovoiturageEstia.fr</div>
+ 
+        <nav class="main-tabs">
+            <a class="active" onclick="showSection('commande')">Commandez une course</a>
+            <a onclick="showSection('options')">Voir les prix</a>
+        </nav>
+ 
+        <div class="right">
+            <a href="#">Connexion</a>
         </div>
-        <span class="logo-text">Covoiturage</span>
-      </div>
-
-      <nav class="header-actions">
-        <a href="#" class="header-link">Rechercher</a>
-        <a href="#" class="header-link">Publier un trajet</a>
-        <button class="icon-button" aria-label="Mon compte">
-          <div class="avatar"></div>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO + IMAGE DE FOND -->
-  <section class="hero">
-    <div class="hero-banner">
-      <!-- Image simulée avec un dégradé, tu pourras mettre une vraie image en background-image -->
-    </div>
-
-    <!-- BARRE DE RECHERCHE -->
-    <div class="search-wrapper">
-      <form class="search-bar">
-        <div class="search-field">
-          <span class="field-label">Départ</span>
-          <input type="text" placeholder="Ville de départ">
-        </div>
-
-        <div class="search-divider"></div>
-
-        <div class="search-field">
-          <span class="field-label">Destination</span>
-          <input type="text" placeholder="Ville d’arrivée">
-        </div>
-
-        <div class="search-divider"></div>
-
-        <div class="search-field">
-          <span class="field-label">Date</span>
-          <input type="date">
-        </div>
-
-        <div class="search-divider"></div>
-
-        <div class="search-field search-field-small">
-          <span class="field-label">Passagers</span>
-          <select>
-            <option>1 passager</option>
-            <option>2 passagers</option>
-            <option>3 passagers</option>
-            <option>4 passagers</option>
-            <option>5 passagers</option>
-          </select>
-        </div>
-
-        <div class="search-divider"></div>
-
-        <div class="search-field search-field-small">
-          <span class="field-label">Niveau d'études</span>
-          <select>
-            <option>Non précisé</option>
-            <option>Bac</option>
-            <option>Bac +1</option>
-            <option>Bac +2</option>
-            <option>Bac +3</option>
-            <option>Bac +4</option>
-            <option>Bac +5 et +</option>
-          </select>
-        </div>
-
-        <button type="submit" class="search-button">Rechercher</button>
-      </form>
-    </div>
+    </header>
+    
   </section>
+  
+    <!-- SECTION OPTIONS (À insérer ici) -->
+<section id="options" class="section">
+<h1>💰 Tarifs et Contributions Suggérées</h1>
+<p>Découvrez la grille de contribution pour votre covoiturage. Nos prix sont transparents et équitables.</p>
 
-  <!-- CONTENU EXEMPLE EN DESSOUS (facultatif) -->
-  <main class="content">
-    <h1>On y va comment ?</h1>
-    <p>
-      Cette page est une maquette HTML/CSS de ton futur site de covoiturage.
-      Tu pourras ensuite connecter la recherche à une API ou du JavaScript.
+    <div style="display: flex; gap: 20px; margin-top: 30px; flex-wrap: wrap;">
+
+        <div style="flex: 1; min-width: 250px; background-color: #1a1a1a; padding: 25px; border-radius: 10px; border-left: 4px solid #00FFFF;">
+            <h3>Trajets Courts (Jusqu'à 10 km)</h3>
+            <p style="font-size: 1.5em; font-weight: bold; color: #00FFFF; margin: 10px 0;">2.50€ - 3.50€</p>
+            <p>Idéal pour les trajets quotidiens autour du campus (Bayonne, Anglet).</p>
+            <ul style="list-style: none; padding: 0; font-size: 0.9em;">
+                <li>✓ Couvre l'essence.</li>
+                <li>✓ Assurance de base incluse.</li>
+            </ul>
+        </div>
+
+        <div style="flex: 1; min-width: 250px; background-color: #1a1a1a; padding: 25px; border-radius: 10px; border-left: 4px solid #3F00FF;">
+            <h3>Trajets Moyens (Jusqu'à 30 km)</h3>
+            <p style="font-size: 1.5em; font-weight: bold; color: #3F00FF; margin: 10px 0;">5.00€ - 7.00€</p>
+            <p>Pour les trajets vers Saint-Jean-de-Luz ou similaires.</p>
+            <ul style="list-style: none; padding: 0; font-size: 0.9em;">
+                <li>✓ Contribution aux péages éventuels.</li>
+                <li>✓ Plus grande flexibilité horaire.</li>
+            </ul>
+        </div>
+
+        <div style="flex: 1; min-width: 250px; background-color: #1a1a1a; padding: 25px; border-radius: 10px; border-left: 4px solid #FF00FF;">
+            <h3>Trajets Longs (+ de 30 km)</h3>
+            <p style="font-size: 1.5em; font-weight: bold; color: #FF00FF; margin: 10px 0;">0.15€ / km</p>
+            <p>Tarification précise pour les longues distances (Pau, Dax).</p>
+            <ul style="list-style: none; padding: 0; font-size: 0.9em;">
+                <li>✓ Maximum légal respecté.</li>
+                <li>✓ Détails du trajet avant validation.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <p style="text-align: center; font-size: 0.8em; opacity: 0.5; margin-top: 40px;">
+        * Ces prix sont des suggestions de contribution. Le montant final est fixé par le conducteur dans le respect des limites de frais.
     </p>
-  </main>
-
-  <footer class="footer">
-    <p>© 2025 Covoiturage – Maquette de page d’accueil.</p>
-  </footer>
+</section>
+    <!-- Test -->
+    <footer class="footer">
+        CovoiturageESTIA
+    </footer>
+ 
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active-section'));
+            document.getElementById(id).classList.add('active-section');
+ 
+            document.querySelectorAll('.main-tabs a').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+ 
 </body>
 </html>
